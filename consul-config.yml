@@ -1,0 +1,35 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: Apache-2.0
+
+---
+
+# See https://developer.hashicorp.com/consul/docs/k8s/helm for more information
+global:
+  enabled: true
+  name: consul
+  datacenter: dc1
+  tls:
+    enabled: true
+  acls:
+    manageSystemACLs: true
+server:
+  enabled: true
+  replicas: 3
+connectInject:
+  enabled: true
+controller:
+  enabled: true
+ingressGateways:
+  enabled: true
+  defaults:
+    replicas: 1
+  gateways:
+    - name: ingress-gateway
+      service:
+        type: LoadBalancer
+        ports:
+          - port: 8080
+ui:
+  enabled: true
+  service:
+    type: LoadBalancer
