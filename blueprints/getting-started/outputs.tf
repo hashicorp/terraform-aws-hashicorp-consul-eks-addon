@@ -27,10 +27,5 @@ output "kubectl_command_configure" {
 
 output "kubectl_command_portforward" {
   description = "kubectl command to enable port-forwarding for port 8500"
-  value       = "kubectl port-forward service/consul-active 8500:8500 --namespace=${var.namespace}"
-}
-
-output "kubectl_command_describe_secrets" {
-  description = "kubectl command to describe Kubernetes Secrets"
-  value       = "kubectl describe secrets --namespace=${var.namespace}"
+  value       = "kubectl port-forward service/consul-ui 8500:8500 --namespace=${var.namespace}"
 }

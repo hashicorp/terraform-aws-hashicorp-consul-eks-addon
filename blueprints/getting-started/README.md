@@ -47,7 +47,7 @@ The `variables` and `outputs` used within this showcase are _not_ required to be
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| cluster_version | Kubernetes version to use for EKS Cluster | `string` | `"1.23"` | no |
+| cluster_version | Kubernetes version to use for EKS Cluster | `string` | `"1.26"` | no |
 | namespace | Kubernetes Namespace to deploy HashiCorp Consul in | `string` | `"consul"` | no |
 | vpc_cidr | VPC CIDR | `string` | `"10.0.0.0/16"` | no |
 

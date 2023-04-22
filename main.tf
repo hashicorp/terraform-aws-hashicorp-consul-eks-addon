@@ -11,7 +11,7 @@ resource "helm_release" "consul" {
   create_namespace = try(var.helm_config.create_namespace, true)
   description      = try(var.helm_config.description, null)
   chart            = "consul"
-  version          = try(var.helm_config.version, "0.22.0")
+  version          = try(var.helm_config.version, "1.1.1")
   repository       = try(var.helm_config.repository, "https://helm.releases.hashicorp.com")
   values           = try(var.helm_config.values, [file("${path.module}/consul-config.yml")])
 

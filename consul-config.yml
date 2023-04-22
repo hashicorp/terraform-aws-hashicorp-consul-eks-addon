@@ -17,18 +17,6 @@ server:
   replicas: 3
 connectInject:
   enabled: true
-controller:
-  enabled: true
-ingressGateways:
-  enabled: true
-  defaults:
-    replicas: 1
-  gateways:
-    - name: ingress-gateway
-      service:
-        type: LoadBalancer
-        ports:
-          - port: 8080
 ui:
   enabled: true
   service:
