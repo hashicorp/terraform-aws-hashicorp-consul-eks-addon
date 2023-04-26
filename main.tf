@@ -1,8 +1,6 @@
 # Copyright (c) HashiCorp, Inc.
 # SPDX-License-Identifier: Apache-2.0
 
-# TODO: fix this
-
 resource "helm_release" "consul" {
   count = var.manage_via_gitops ? 0 : 1
 
