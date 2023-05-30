@@ -23,6 +23,14 @@ The code in this directory showcases an easy way to get started with the HashiCo
 
 ## Usage
 
+Make sure to Export AWS access key and AWS secret access key to your CLI prior to getting started.
+
+```sh
+export AWS_ACCESS_KEY_ID=... 
+export AWS_SECRET_ACCESS_KEY=...
+export AWS_SESSION_TOKEN=...
+```
+
 Initialize the root module and any associated configuration for providers and child modules by executing the `terraform init` command.
 
 Once all dependencies have been installed, execute `terraform plan` and review the resources that will be created.
@@ -33,7 +41,18 @@ For more detailed information, see the documentation for the [Terraform Core wor
 
 On successful completion, Terraform will display outputs containing URLs to the AWS Console as well as `kubectl`-specific commands.
 
-<!-- TODO: Fix -->
+After deploying the mesh, deploy HashiCups demo app.
+
+Demo can be found here: https://github.com/hashicorp-education/learn-consul-get-started-kubernetes/tree/main/self-managed/eks/hashicups
+
+After deploying the mesh, deploy HashiCups demo app.
+
+Demo can be found here: https://github.com/hashicorp-education/learn-consul-get-started-kubernetes/tree/main/self-managed/eks/hashicups
+
+```sh
+kubectl apply --filename hashicups/v1/
+```
+
 These commands may be used to configure a local `consul` agent and intialize the server, as described in the next section.
 
 Refer to the root-level [README.md](../../readme.md) for an overview of the next steps.

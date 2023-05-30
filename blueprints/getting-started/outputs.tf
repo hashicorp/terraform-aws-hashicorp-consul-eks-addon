@@ -25,7 +25,7 @@ output "kubectl_command_configure" {
   value       = module.eks_blueprints.configure_kubectl
 }
 
-output "kubectl_command_portforward" {
+output "kubectl_command_exposed" {
   description = "kubectl command to enable port-forwarding for port 8500"
-  value       = "kubectl port-forward service/consul-ui 8500:8500 --namespace=${var.namespace}"
+  value       = "kubectl expose service consul-ui --port=8500 --target-port=8500 --name=consul-exposed --type=LoadBalancer --namespace=${var.namespace}"
 }
