@@ -91,10 +91,12 @@ module "eks_blueprint_addons" {
   enable_amazon_eks_aws_ebs_csi_driver = true
 
   # HashiCorp Consul
-  # enable_consul = true
-  # consul_helm_config = {
-  #   namespace = var.namespace
-  # }
+  enable_consul = true
+  consul_helm_config = {
+    namespace = var.namespace
+    version   = "1.1.1"
+    values    = [file("${path.module}/values.yml")]
+  }
 
   tags = local.tags
 }
@@ -106,7 +108,7 @@ module "eks_blueprint_addons" {
 # See https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = "~> 3.0"
+  version = "~> 4.0"
 
   name = local.name
   cidr = var.vpc_cidr

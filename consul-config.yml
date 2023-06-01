@@ -4,20 +4,53 @@
 ---
 
 # See https://developer.hashicorp.com/consul/docs/k8s/helm for more information
+# Configure global settings in this section.
 global:
-  enabled: true
   name: consul
-  datacenter: dc1
-  tls:
-    enabled: true
+  # Bootstrap ACLs within Consul. This is highly recommended.
   acls:
     manageSystemACLs: true
+  # Gossip encryption
+  gossipEncryption:
+    autoGenerate: true
+# Configure your Consul servers in this section.
 server:
-  enabled: true
+  # Specify three servers that wait until all are healthy to bootstrap the Consul cluster.
   replicas: 3
-connectInject:
-  enabled: true
+  # Specify the resources that servers request for placement. These values will serve a large environment.
+  resources:
+    requests:
+      memory: '32Gi'
+      cpu: '4'
+      disk: '50Gi'
+    limits:
+      memory: '32Gi'
+      cpu: '4'
+      disk: '50Gi'
+  # If using Enterprise, reference the Kubernetes secret that holds your license here
+  # enterpriseLicense:
+  #   secretName: 'consul-license'
+  #   secretKey: 'key'
+# Configure Consul clients in this section
+client:
+  # Specify the resources that clients request for deployment.
+  resources:
+    requests:
+      memory: '8Gi'
+      cpu: '2'
+      disk: '15Gi'
+    limits:
+      memory: '8Gi'
+      cpu: '2'
+      disk: '15Gi'
+# Enable and configure the Consul UI.
 ui:
   enabled: true
   service:
     type: LoadBalancer
+# Enable Consul connect pod injection
+connectInject:
+  enabled: true
+  default: true
+controller:
+  enabled: true

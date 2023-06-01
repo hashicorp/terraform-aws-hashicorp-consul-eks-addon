@@ -41,13 +41,7 @@ For more detailed information, see the documentation for the [Terraform Core wor
 
 On successful completion, Terraform will display outputs containing URLs to the AWS Console as well as `kubectl`-specific commands.
 
-After deploying the mesh, deploy HashiCups demo app.
-
-Demo can be found here: https://github.com/hashicorp-education/learn-consul-get-started-kubernetes/tree/main/self-managed/eks/hashicups
-
-After deploying the mesh, deploy HashiCups demo app.
-
-Demo can be found here: https://github.com/hashicorp-education/learn-consul-get-started-kubernetes/tree/main/self-managed/eks/hashicups
+As a test you can deploy the [HashiCups demo app](https://github.com/hashicorp-education/learn-consul-get-started-kubernetes/tree/main/self-managed/eks/hashicups) after deploying the mesh.
 
 ```sh
 kubectl apply --filename hashicups/v1/
