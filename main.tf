@@ -1,4 +1,4 @@
-# Copyright IBM Corp. 2023
+# Copyright IBM Corp. 2023, 2026
 # SPDX-License-Identifier: Apache-2.0
 
 resource "helm_release" "consul" {
